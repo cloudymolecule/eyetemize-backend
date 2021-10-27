@@ -15,6 +15,7 @@ class NotesController < ApplicationController
 
   # POST /notes
   def create
+    # byebug
     @note = Note.new(note_params)
 
     if @note.save
@@ -46,6 +47,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:title, :content)
+      params.permit(:title, :content)
     end
 end
